@@ -2,36 +2,33 @@ from semantic_router import Route, RouteLayer
 from semantic_router.encoders import HuggingFaceEncoder
 
 encoder = HuggingFaceEncoder(
-    name="sentence-transformers/all-mpnet-base-v2"
-
+    name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
 faq = Route(
     name="faq",
     utterances=[
-        "What is the return policy?",
-        "What is your refund policy?",
+        "What is the return policy of the products?",
+        "Do I get discount with the HDFC credit card?",
         "How can I track my order?",
         "What payment methods are accepted?",
-        "Do you offer international shipping?",
-        "What is your policy on defective products?"
+        "How long does it take to process a refund?",
     ]
 )
 
-product_search = Route(
-    name="product_search",
+sql = Route(
+    name="sql",
     utterances=[
-        "I want to buy nike shoes with discount",
-        "Shoes under 3000 rupees",
-        "Formal shoes in size 9",
-        "Puma shoes on sale",
-        "Price of puma running shoes",
-        "Pink puma shoes between 1000 and 5000"
+        "I want to buy nike shoes that have 50% discount.",
+        "Are there any shoes under Rs. 3000?",
+        "Do you have formal shoes in size 9?",
+        "Are there any Puma shoes on sale?",
+        "What is the price of puma running shoes?",
     ]
 )
 
 router = RouteLayer(
-    routes=[faq, product_search],
+    routes=[faq, sql],
     encoder=encoder
 )
 

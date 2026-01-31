@@ -58,7 +58,7 @@ def generate_answer(query, context):
         QUESTION: {query}
         CONTEXT: {context}
         '''
-        #calling llm
+
     chat_completion = groq_client.chat.completions.create(
         messages=[
             {
