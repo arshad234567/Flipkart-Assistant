@@ -1,0 +1,8 @@
+semantic-router==0.0.17
+sentence-transformers
+torch
+chromadb
+streamlit
+pandas
+groq
+python-dotenv
